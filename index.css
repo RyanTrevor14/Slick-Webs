@@ -28,7 +28,7 @@ main img{
     border-radius: 30px;
     animation-name: rotate;
     animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-play-state: running;
     animation-duration: normal;
 }
@@ -58,8 +58,6 @@ nav ul  img{
     padding: auto;
     margin-right: 1cm;
     border-radius: 50px;
-}
-nav ul img:hover{
     animation-name: glow;
     animation-duration: 2s;
     animation-iteration-count: infinite;
