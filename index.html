@@ -3,38 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slick Webs</title>
+    <title>Slick Webs | Modern Web Solutions</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image" href="favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="icon.jpg" alt="Slick Webs Logo" class="logo-img"> 
+            <span>Slick Webs</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://wa.me/256778135792" target="_blank" class="btn-primary">Hire Me</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge">Professional Web Development</span>
+            <h1>We Build <span class="highlight">Modern</span> & <span class="highlight">Responsive</span> Websites</h1>
+            <p>Elevate your brand with a website that looks great on every device. Fast, secure, and designed for growth.</p>
             
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="https://wa.me/256778135792" target="_blank">Hire me</a></li>
-                <img src="icon.jpg" width="50px" >
-            </ul>
-            
-        </nav>
+            <div class="cta-group">
+                <a href="https://wa.me/256778135792" target="_blank" class="btn-primary">Start a Project</a>
+                <a href="#portfolio" class="btn-secondary">View Work</a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <img src="wallpaperflare.com_wallpaper.jpg" alt="Modern Web Design">
+        </div>
     </header>
-    <main>
-        <h2><center>
-            NEED
-            <br>A WEBSITE:</br>
-        </center></h2>
-        <h1><center>WELCOM TO SLICK WEBS</center></h1>
-        <b><p>We are ready to help you build a <br> modern and resposive website</p></b>
-        <center><img src="wallpaperflare.com_wallpaper.jpg" width="400px" alt=""></center>
-    </main>
+
+    <section class="features">
+        <div class="card">
+            <h3>Responsive</h3>
+            <p>Layouts that adapt perfectly to mobile, tablet, and desktop screens.</p>
+        </div>
+        <div class="card">
+            <h3>Fast Performance</h3>
+            <p>Optimized code to ensure your customers don't wait for pages to load.</p>
+        </div>
+        <div class="card">
+            <h3>Modern Design</h3>
+            <p>Sleek aesthetics that match international design standards.</p>
+        </div>
+    </section>
+
     <footer>
-        <p>Author; RYAN TREVOR</p>
-        <p>For website services contact;0778135792 <button style="background-color: lawngreen;"><a href="https://wa.me/256778135792" target="_blank" style="color: black; font-size: px;">WHATSAPP</a></button></p>
-        <p>&copy; Copyright reserved</p>
+        <div class="footer-content">
+            <h3>Slick Webs</h3>
+            <p>Created by Ryan Trevor</p>
+            <a href="https://wa.me/256778135792" class="whatsapp-link">
+                Contact via WhatsApp
+            </a>
+            <p class="copyright">&copy; 2024 Slick Webs. All rights reserved.</p>
+        </div>
     </footer>
 
-    
 </body>
 </html>
