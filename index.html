@@ -3,66 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slick Webs | Modern Web Solutions</title>
-    <link rel="stylesheet" href="index.css">
+    <meta name="description" content="Slick Webs - Professional Web Design and Development in Uganda.">
+    <title>Slick Webs | Digital Agency</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">
-            <img src="icon.jpg" alt="Slick Webs Logo" class="logo-img"> 
-            <span>Slick Webs</span>
+        <div class="container nav-flex">
+            <a href="#" class="logo">Slick<span>Webs</span>.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#contact" class="btn-nav">Hire Me</a></li>
+            </ul>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="https://wa.me/256778135792" target="_blank" class="btn-primary">Hire Me</a></li>
-        </ul>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <span class="badge">Professional Web Development</span>
-            <h1>We Build <span class="highlight">Modern</span> & <span class="highlight">Responsive</span> Websites</h1>
-            <p>Elevate your brand with a website that looks great on every device. Fast, secure, and designed for growth.</p>
-            
-            <div class="cta-group">
-                <a href="https://wa.me/256778135792" target="_blank" class="btn-primary">Start a Project</a>
-                <a href="#portfolio" class="btn-secondary">View Work</a>
+    <header id="home" class="hero">
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <span class="tagline">🚀 WEB DEVELOPMENT AGENCY</span>
+                <h1>We Craft Digital <br><span class="gradient-text">Masterpieces</span></h1>
+                <p>Turn your visitors into customers with a website that is lightning fast, mobile responsive, and visually stunning.</p>
+                <div class="btn-group">
+                    <a href="https://wa.me/256778135792" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                    <a href="#portfolio" class="btn-secondary">View Portfolio</a>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Projects Done</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Satisfaction</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="hero-image">
-            <img src="wallpaperflare.com_wallpaper.jpg" alt="Modern Web Design">
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" alt="Coding Setup">
+                <div class="floating-card">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Clean Code</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="features">
-        <div class="card">
-            <h3>Responsive</h3>
-            <p>Layouts that adapt perfectly to mobile, tablet, and desktop screens.</p>
+    <section id="services" class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expertise</h2>
+                <p>Everything you need to grow your business online.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card service-card">
+                    <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Custom websites built from scratch using HTML, CSS, and JS to fit your exact needs.</p>
+                </div>
+                <div class="card service-card">
+                    <div class="icon-box"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h3>Responsive Design</h3>
+                    <p>Layouts that look perfect on smartphones, tablets, and desktop computers automatically.</p>
+                </div>
+                <div class="card service-card">
+                    <div class="icon-box"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Speed Optimization</h3>
+                    <p>We optimize every line of code to ensure your website loads in under 2 seconds.</p>
+                </div>
+            </div>
         </div>
-        <div class="card">
-            <h3>Fast Performance</h3>
-            <p>Optimized code to ensure your customers don't wait for pages to load.</p>
+    </section>
+
+    <section id="portfolio" class="section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: var(--dark-bg);">Recent Work</h2>
+                <p style="color: #666;">Check out some of our latest projects.</p>
+            </div>
+            <div class="grid-3">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Project 1">
+                    <div class="project-info">
+                        <h4>E-Commerce Store</h4>
+                        <p>Online Shop Design</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Project 2">
+                    <div class="project-info">
+                        <h4>Corporate Agency</h4>
+                        <p>Business Website</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Project 3">
+                    <div class="project-info">
+                        <h4>SaaS Dashboard</h4>
+                        <p>App Interface</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-            <h3>Modern Design</h3>
-            <p>Sleek aesthetics that match international design standards.</p>
+    </section>
+
+    <section id="contact" class="section-dark contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Ready to start your project?</h2>
+                <p>Let's build something amazing together. Contact Ryan Trevor today.</p>
+                <br>
+                <a href="https://wa.me/256778135792" class="btn-primary huge-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Message +256 778 135 792
+                </a>
+            </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <h3>Slick Webs</h3>
-            <p>Created by Ryan Trevor</p>
-            <a href="https://wa.me/256778135792" class="whatsapp-link">
-                Contact via WhatsApp
-            </a>
-            <p class="copyright">&copy; 2024 Slick Webs. All rights reserved.</p>
+        <div class="container footer-flex">
+            <div class="footer-about">
+                <h3>Slick Webs.</h3>
+                <p>Modern web solutions for forward-thinking businesses.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Work</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Slick Webs. Designed by Ryan Trevor.</p>
         </div>
     </footer>
 
