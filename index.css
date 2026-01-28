@@ -290,7 +290,7 @@ body {
 
 /* --- 6. PORTFOLIO --- */
 .section-light {
-    background-color:  brightblue;
+    background: var(--primary);
     padding: 80px 0;
 }
 
@@ -455,6 +455,7 @@ footer {
         margin: 0 10px;
     }
 }
+
 
 
 
