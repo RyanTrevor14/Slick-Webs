@@ -16,7 +16,12 @@
     <nav class="navbar">
         <div class="container nav-flex">
             <a href="#" class="logo">Slick<span>Webs</span>.</a>
-            <ul class="nav-links">
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="nav-list">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Work</a></li>
@@ -86,69 +91,73 @@
     <section id="portfolio" class="section-light" style="background-color:#00008B;">
         <div class="container">
             <div class="section-header">
-                <h2 style="color: var(--dark-bg);">Featured Projects</h2>
+                <h2 style="color: white;">Featured Projects</h2>
                 <p style="color: #666;">From static sites to complex web applications.</p>
             </div>
             
             <div class="grid-3">
-                
+            <a href="">
                 <div class="project-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tourism Site">
                     </div>
                     <div class="project-info">
-                        <span class="category">Travel & Leisure</span>
+                        <span class="category" style="color: darkblue;">Travel & Leisure</span>
                         <h4>Safari Tourism Portal</h4>
                         <p>A visual-heavy booking platform for Uganda tourism with gallery showcases.</p>
                     </div>
                 </div>
-
+            </a>
+            <a href="https://ryantrevor14.github.io/Luzira-hardware/">
                 <div class="project-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hardware Site">
                     </div>
                     <div class="project-info">
-                        <span class="category">Retail Business</span>
+                        <span class="category" style="color: darkblue;">Retail Business</span>
                         <h4>Hardware Depot</h4>
                         <p>A fast, static inventory catalog for construction and hardware supplies.</p>
                     </div>
                 </div>
-
+            </a>
+            <a href="https://achimusic.netlify.app/">
                 <div class="project-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Music Site">
                     </div>
                     <div class="project-info">
-                        <span class="category">Entertainment</span>
+                        <span class="category" style="color: darkblue;">Entertainment</span>
                         <h4>Artist Music Hub</h4>
                         <p>Audio streaming integration and artist portfolio management.</p>
                     </div>
                 </div>
-
+            </a>
+            <a href="">
                 <div class="project-card">
                     <div class="card-image">
-                        <span class="status-badge pulse">In Development</span>
+                        <span class="status-badge pulse" style="color:gray;">In Development</span>
                         <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="IT School">
                     </div>
                     <div class="project-info">
-                        <span class="category">Ed-Tech</span>
+                        <span class="category" style="color: darkblue;">Ed-Tech</span>
                         <h4>Online IT Academy</h4>
                         <p>A complete E-Learning Management System (LMS) for students.</p>
                     </div>
                 </div>
-
+            </a>
+            <a href="#">
                 <div class="project-card">
                     <div class="card-image">
-                        <span class="status-badge pulse">Coming Soon</span>
+                        <span class="status-badge pulse" style="color:gray;">Coming Soon</span>
                         <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Streaming App">
                     </div>
                     <div class="project-info">
-                        <span class="category">Web Application</span>
+                        <span class="category" style="color: darkblue;">Web Application</span>
                         <h4>LiveStream & Chat</h4>
                         <p>Real-time messaging and video streaming web application.</p>
                     </div>
                 </div>
-
+            </a>
             </div>
         </div>
     </section>
@@ -184,7 +193,27 @@
     </footer>
 
 </body>
-</html>
+<script>
+        const menu = document.querySelector('#mobile-menu');
+        const menuLinks = document.querySelector('#nav-list');
 
+        menu.addEventListener('click', function() {
+            menuLinks.classList.toggle('active');
+            
+            // Optional: Toggle icon between 'bars' and 'x'
+            const icon = menu.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
+            menuLinks.classList.remove('active');
+            const icon = menu.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }));
+    </script>
+</html>
 
 
