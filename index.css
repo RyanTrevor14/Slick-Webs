@@ -1,3 +1,4 @@
+
 /* --- 1. VARIABLES & RESET --- */
 :root {
     --primary: #3b82f6;      /* Bright Blue */
@@ -8,6 +9,9 @@
     --gray-text: #94a3b8;
     --card-bg: #1e293b;
     --font-main: 'Inter', sans-serif;
+}
+a{
+    text-decoration: none;
 }
 
 * {
@@ -33,9 +37,10 @@ body {
 
 .gradient-text {
     background: linear-gradient(to right, var(--primary), var(--accent));
-    -webkit-background-clip: text;
+    -webkit-background-clip: text; /* For Chrome/Safari */
+    background-clip: text;         /* The standard property (Fixes the error) */
     -webkit-text-fill-color: transparent;
-}
+}  
 
 .grid-3 {
     display: grid;
@@ -393,5 +398,82 @@ footer {
     
     .footer-links a {
         margin: 0 10px;
+    }
+}
+/* --- MOBILE NAV LOGIC --- */
+
+/* Hide hamburger by default */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px; /* Height of navbar */
+        right: -100%; /* Hidden off-screen */
+        flex-direction: column;
+        background: var(--dark-bg);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s;
+        padding: 40px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    /* This class will be added by JavaScript */
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
+@media (max-width: 768px) {
+    /* 1. Ensure the container doesn't hide the overflow menu */
+    .nav-flex {
+        position: relative;
+    }
+
+    /* 2. Style the mobile menu drawer */
+    .nav-links {
+        display: flex;             /* Changed from 'none' to 'flex' */
+        position: fixed;
+        top: 0;                    /* Start from very top */
+        right: -100%;              /* Move off-screen to the right */
+        flex-direction: column;
+        background-color: #0f172a; /* Same as your dark-bg variable */
+        width: 70%;                /* Don't cover the whole screen, looks cleaner */
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s ease-in-out;
+        z-index: 999;              /* Sit on top of everything */
+        box-shadow: -10px 0 20px rgba(0,0,0,0.5);
+    }
+
+    /* 3. This is the class the JavaScript toggles */
+    .nav-links.active {
+        right: 0;                  /* Slide into view */
+    }
+
+    /* 4. Ensure the hamburger icon stays on top of the menu */
+    .menu-toggle {
+        display: block;
+        z-index: 1000;             /* Higher than nav-links */
+        cursor: pointer;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
     }
 }
