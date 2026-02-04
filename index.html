@@ -169,13 +169,13 @@
                 <p>Let's build something amazing together. Contact Ryan Trevor today.</p>
                 <br>
                 <a href="https://wa.me/256778135792" class="btn-primary huge-btn">
-                    <i class="fa-brands fa-whatsapp"></i> Message +256 778 135 792
+                    <i class="fa-brands fa-whatsapp"></i> +256 778 135 792
                 </a>
             </div>
         </div>
     </section>
 
-    <footer>
+   <footer>
         <div class="container footer-flex">
             <div class="footer-about">
                 <h3>Slick Webs.</h3>
@@ -192,28 +192,34 @@
         </div>
     </footer>
 
-</body>
-<script>
-        const menu = document.querySelector('#mobile-menu');
-        const menuLinks = document.querySelector('#nav-list');
+    <script>
+    const menu = document.querySelector('#mobile-menu');
+    const menuLinks = document.querySelector('#nav-list');
 
-        menu.addEventListener('click', function() {
-            menuLinks.classList.toggle('active');
-            
-            // Optional: Toggle icon between 'bars' and 'x'
-            const icon = menu.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
-            menuLinks.classList.remove('active');
-            const icon = menu.querySelector('i');
-            icon.classList.add('fa-bars');
+    menu.addEventListener('click', function() {
+        // This toggles the 'active' class defined in CSS above
+        menuLinks.classList.toggle('active');
+        
+        // Icon Animation
+        const icon = menu.querySelector('i');
+        if (menuLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
             icon.classList.remove('fa-xmark');
-        }));
-    </script>
-</html>
+            icon.classList.add('fa-bars');
+        }
+    });
 
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
+        menuLinks.classList.remove('active');
+        const icon = menu.querySelector('i');
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+    }));
+</script>
+
+</body>
+</html>
 
