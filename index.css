@@ -410,70 +410,88 @@ footer {
     color: white;
 }
 
+/* --- MOBILE RESPONSIVENESS & MENU FIX --- */
+
+/* 1. Show Hamburger on Mobile */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Show hamburger on mobile */
+    /* --- LAYOUT ADJUSTMENTS --- */
+    .hero h1 { font-size: 2.5rem; }
+    
+    .hero-flex, .footer-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stats, .btn-group { justify-content: center; }
+
+    .menu-toggle { display: block; }
+
+    /* --- THE NAV MENU FIX --- */
+    .nav-links {
+        /* CRITICAL: Hide it completely by default */
+        display: none; 
+        
+        /* Position it directly under the navbar */
+        position: absolute;
+        top: 100%;       /* Pushes it to the bottom of the gray bar */
+        left: 0;
+        width: 100%;     /* Stretch across screen */
+        
+        /* Style the box */
+        background-color: var(--dark-bg); /* Use your theme color */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        z-index: 999;
     }
 
-    .nav-links {
-        position: fixed;
-        top: 70px; /* Height of navbar */
-        right: -100%; /* Hidden off-screen */
-        flex-direction: column;
-        background: var(--dark-bg);
+    /* --- THE ACTIVE STATE --- */
+    /* This rule forces it to appear when JS adds the class */
+    .nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease forwards; /* Adds a professional drop effect */
+    }
+
+    /* Spacing for links */
+    .nav-links li {
         width: 100%;
         text-align: center;
-        transition: 0.4s;
-        padding: 40px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        margin: 0; /* Reset margins */
     }
 
-    /* This class will be added by JavaScript */
-    .nav-links.active {
-        right: 0;
+    .nav-links a {
+        display: block;
+        padding: 15px 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    .nav-links li {
-        margin: 15px 0;
+    /* Fix the button inside the menu */
+    .nav-links .btn-nav {
+        display: inline-block;
+        width: 100px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 }
-@media (max-width: 768px) {
-    /* 1. Ensure the container doesn't hide the overflow menu */
-    .nav-flex {
-        position: relative;
-    }
 
-    /* 2. Style the mobile menu drawer */
-    .nav-links {
-        display: flex;             /* Changed from 'none' to 'flex' */
-        position: fixed;
-        top: 0;                    /* Start from very top */
-        right: -100%;              /* Move off-screen to the right */
-        flex-direction: column;
-        background-color: #0f172a; /* Same as your dark-bg variable */
-        width: 70%;                /* Don't cover the whole screen, looks cleaner */
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        transition: 0.3s ease-in-out;
-        z-index: 999;              /* Sit on top of everything */
-        box-shadow: -10px 0 20px rgba(0,0,0,0.5);
+/* --- ANIMATION DEFINITION --- */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
     }
-
-    /* 3. This is the class the JavaScript toggles */
-    .nav-links.active {
-        right: 0;                  /* Slide into view */
-    }
-
-    /* 4. Ensure the hamburger icon stays on top of the menu */
-    .menu-toggle {
-        display: block;
-        z-index: 1000;             /* Higher than nav-links */
-        cursor: pointer;
-    }
-
-    .nav-links li {
-        margin: 20px 0;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
