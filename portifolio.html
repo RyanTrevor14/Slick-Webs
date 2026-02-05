@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okabo Ryan Trevor | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+        --primary-color: #2c3e50;
+        --accent-color: #e67e22;
+        --light-bg: #f4f4f4;
+        --dark-bg: #222;
+        --text-color: #333;
+        --white: #fff;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { line-height: 1.6; color: var(--text-color); }
+
+    /* Utilities */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 80px 0; }
+    
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        position: relative;
+    }
+    .section-title::after {
+        content: ''; display: block; width: 60px; height: 3px;
+        background: var(--accent-color); margin: 10px auto 0;
+    }
+
+    .text-white { color: var(--white) !important; }
+    .bg-light { background-color: var(--light-bg); }
+    .bg-dark { background-color: var(--primary-color); color: var(--white); }
+
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+        background: var(--white);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+
+    .nav-links { list-style: none; display: flex; }
+    .nav-links li { margin-left: 20px; }
+    .nav-links a { text-decoration: none; color: var(--primary-color); font-weight: 500; transition: 0.3s; }
+    .nav-links a:hover { color: var(--accent-color); }
+
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--primary-color); }
+
+    /* Hero Section */
+    .hero {
+        height: 90vh;
+        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--white);
+    }
+    .hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
+    .highlight { color: var(--accent-color); }
+    .hero-content h2 { font-size: 1.5rem; font-weight: 300; margin-bottom: 20px; }
+
+    .hero-btns .btn {
+        display: inline-block; padding: 10px 30px; margin: 10px;
+        text-decoration: none; border-radius: 5px; transition: 0.3s;
+    }
+    .btn-primary { background: var(--accent-color); color: var(--white); }
+    .btn-secondary { border: 2px solid var(--white); color: var(--white); }
+    .btn-primary:hover { background: #d35400; }
+    .btn-secondary:hover { background: var(--white); color: var(--primary-color); }
+
+    /* About Section */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .info-list ul { list-style: none; margin-top: 20px; }
+    .info-list li { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+    .skill-tag {
+        display: inline-block; background: #e2e8f0; padding: 8px 15px;
+        border-radius: 20px; margin: 5px; font-size: 0.9rem; font-weight: bold;
+        color: var(--primary-color); border: 1px solid #cbd5e0;
+    }
+
+    /* Experience Section Styling (Images Fixed) */
+    .timeline-item {
+        background: var(--white);
+        padding: 30px;
+        border-left: 5px solid var(--accent-color);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .timeline-text { flex: 1; }
+    .timeline-image {
+        width: 250px;
+        height: 180px;
+        flex-shrink: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .timeline-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    .timeline-item:hover .timeline-image img { transform: scale(1.1); }
+
+    /* Education */
+    .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    .edu-card {
+        background: var(--white); padding: 25px; border: 1px solid #eee;
+        text-align: center; border-radius: 8px; transition: 0.3s;
+    }
+    .edu-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .edu-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary-color); }
+    .edu-card .school { color: var(--accent-color); font-weight: bold; }
+    .awards-section { text-align: center; background: #fffaf0; padding: 30px; border: 2px dashed #fbd38d; border-radius: 10px; }
+
+    /* Contact */
+    .contact-wrapper { display: flex; justify-content: center; text-align: center; gap: 50px; }
+    .contact-item i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; display: block; }
+    footer { text-align: center; padding: 30px; background: #1a202c; color: #a0aec0; font-size: 0.9rem; }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 768px) {
+        .hamburger { display: block; }
+        .nav-links { 
+            display: none; 
+            width: 100%;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        .nav-links.active { display: flex; }
+        .nav-links li { margin: 10px 0; text-align: center; width: 100%; }
+        .nav-links li {margin-left: 0;}
+
+        .about-grid { grid-template-columns: 1fr; }
+        .timeline-item { flex-direction: column-reverse; text-align: left; }
+        .timeline-image { width: 100%; height: 200px; }
+        .contact-wrapper { flex-direction: column; gap: 30px; }
+    }
+</style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">OKABO R.T.</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Okabo Ryan Trevor</span></h1>
+            <h2>Web Master & ICT Specialist</h2>
+            <p>Hardworking, social, and a fast learner with a passion for coding and technology.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <a href="#experience" class="btn btn-secondary">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I am a hardworking and social person capable of handling different types of people under any circumstances. 
+                    I am also a very fast learner willing to work under instructions and pressure, provided it is with respect 
+                    and dignity. I possess a great sense of humor.
+                </p>
+                <div class="info-list">
+                    <ul>
+                        <li><strong>Nationality:</strong> Ugandan</li>
+                        <li><strong>Languages:</strong> English (Fluent), Luganda (Good), Luo (Fair)</li>
+                        <li><strong>Interests:</strong> Coding, Researching, Music, Gaming, Socializing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="skills-container">
+                <h3>Core Skills</h3>
+                <div class="skill-tag">ICT Skills</div>
+                <div class="skill-tag">Website Maintenance</div>
+                <div class="skill-tag">Communication</div>
+                <div class="skill-tag">Creativity</div>
+                <div class="skill-tag">Customer Service</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="bg-light section">
+        <div class="container">
+            <h2 class="section-title">Working Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-text">
+                        <h3>Web Master and Cashier</h3>
+                        <span class="company">
+                            <a href="https://ryantrevor14.github.io/Luzira-hardware/" target="_blank" style="text-decoration: none; color: var(--accent-color); font-weight: bold;">
+                                Luzira Hardware <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i>
+                            </a>
+                        </span>
+                        <span class="date">2020 - 2024</span>
+                        <p><strong>Responsibilities:</strong></p>
+                        <ul class="job-duties" style="list-style-position: inside;">
+                            <li>Website maintenance and management.</li>
+                            <li>Attending to customers and handling inquiries.</li>
+                            <li>Cashiering and financial handling.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-image">
+                        <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=500&q=80" alt="Hardware Management">
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-text">
+                        <h3>Web Developer</h3>
+                        <span class="company">
+                            <a href="index.html" style="text-decoration: none; color: var(--accent-color); font-weight: bold;">
+                                Slick Webs <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i>
+                            </a>
+                        </span>
+                        <span class="date">2024 - Present</span>
+                        <p><strong>Responsibilities:</strong></p>
+                        <ul class="job-duties" style="list-style-position: inside;">
+                            <li>Company Owner & Founder.</li>
+                            <li>Full-stack website development and maintenance.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-image">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80" alt="Web Development Work">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="container section">
+        <h2 class="section-title">Education & Awards</h2>
+        <div class="education-grid">
+            <div class="edu-card">
+                <h3>UACE</h3>
+                <p class="school">St. Mary's College Lugazi</p>
+                <p class="year">2024</p>
+            </div>
+            <div class="edu-card">
+                <h3>UCE</h3>
+                <p class="school">St. Mary's College Lugazi</p>
+                <p class="year">2022</p>
+            </div>
+            <div class="edu-card">
+                <h3>PLE</h3>
+                <p class="school">St. Kizito P/S Bugoolobi</p>
+                <p class="year">2017</p>
+            </div>
+        </div>
+        <div class="awards-section">
+            <h3><i class="fas fa-certificate"></i> Professional Awards</h3>
+            <p>Certificate of Information and Technology (ICT) applications - St. Mary's College Lugazi</p>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-dark section">
+        <div class="container">
+            <h2 class="section-title text-white">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p class="text-white">0778135792</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p class="text-white">okabotrevor@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p class="text-white">Kampala, Uganda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Okabo Ryan Trevor. Built with Passion for Technology.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Auto-close menu on link click (Mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
