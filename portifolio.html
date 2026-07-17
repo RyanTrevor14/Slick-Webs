@@ -29,11 +29,11 @@
     /* Utilities */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
     .section { padding: 80px 0; }
-    
+
     .section-title {
         text-align: center;
         font-size: 2.5rem;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
         color: var(--primary-color);
         text-transform: uppercase;
         position: relative;
@@ -41,6 +41,12 @@
     .section-title::after {
         content: ''; display: block; width: 60px; height: 3px;
         background: var(--accent-color); margin: 10px auto 0;
+    }
+    .section-subtitle {
+        text-align: center;
+        color: #718096;
+        max-width: 600px;
+        margin: 20px auto 40px;
     }
 
     .text-white { color: var(--white) !important; }
@@ -81,9 +87,11 @@
         text-align: center;
         color: var(--white);
     }
+    .hero-content { max-width: 750px; padding: 0 20px; }
     .hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
     .highlight { color: var(--accent-color); }
-    .hero-content h2 { font-size: 1.5rem; font-weight: 300; margin-bottom: 20px; }
+    .hero-content h2 { font-size: 1.4rem; font-weight: 300; margin-bottom: 20px; }
+    .hero-content p { color: #dfe6ee; }
 
     .hero-btns .btn {
         display: inline-block; padding: 10px 30px; margin: 10px;
@@ -98,9 +106,11 @@
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     .info-list ul { list-style: none; margin-top: 20px; }
     .info-list li { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+    .skill-group { margin-bottom: 20px; }
+    .skill-group h4 { color: var(--primary-color); margin-bottom: 10px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; }
     .skill-tag {
         display: inline-block; background: #e2e8f0; padding: 8px 15px;
-        border-radius: 20px; margin: 5px; font-size: 0.9rem; font-weight: bold;
+        border-radius: 20px; margin: 5px 5px 0 0; font-size: 0.9rem; font-weight: bold;
         color: var(--primary-color); border: 1px solid #cbd5e0;
     }
 
@@ -118,6 +128,8 @@
     }
 
     .timeline-text { flex: 1; }
+    .timeline-text .date { display: inline-block; color: #718096; font-size: 0.9rem; margin-left: 8px; }
+    .timeline-text ul.job-duties { margin-top: 8px; color: #4a5568; }
     .timeline-image {
         width: 250px;
         height: 180px;
@@ -134,6 +146,40 @@
     }
     .timeline-item:hover .timeline-image img { transform: scale(1.1); }
 
+    /* Projects Section */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+    .project-card {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        border-top: 4px solid var(--accent-color);
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .project-card .project-icon {
+        width: 55px; height: 55px; border-radius: 50%;
+        background: var(--primary-color); color: var(--white);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.4rem; margin-bottom: 15px;
+    }
+    .project-card h3 { color: var(--primary-color); margin-bottom: 10px; }
+    .project-card p { color: #4a5568; font-size: 0.95rem; flex-grow: 1; margin-bottom: 15px; }
+    .project-card ul { list-style-position: inside; color: #4a5568; font-size: 0.9rem; margin-bottom: 15px; }
+    .project-card ul li { margin-bottom: 6px; }
+    .project-card .project-link {
+        text-decoration: none; color: var(--accent-color); font-weight: bold; font-size: 0.9rem;
+    }
+    .project-card .project-link i { margin-left: 5px; font-size: 0.8rem; }
+    .project-status {
+        display: inline-block; font-size: 0.75rem; font-weight: bold;
+        padding: 3px 10px; border-radius: 12px; margin-bottom: 12px;
+        background: #fffaf0; color: var(--accent-color); border: 1px solid #fbd38d;
+        align-self: flex-start;
+    }
+
     /* Education */
     .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
     .edu-card {
@@ -143,10 +189,12 @@
     .edu-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     .edu-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary-color); }
     .edu-card .school { color: var(--accent-color); font-weight: bold; }
+    .edu-card .year { color: #718096; font-size: 0.9rem; margin-top: 4px; }
+    .edu-card.current { border: 2px solid var(--accent-color); }
     .awards-section { text-align: center; background: #fffaf0; padding: 30px; border: 2px dashed #fbd38d; border-radius: 10px; }
 
     /* Contact */
-    .contact-wrapper { display: flex; justify-content: center; text-align: center; gap: 50px; }
+    .contact-wrapper { display: flex; justify-content: center; text-align: center; gap: 50px; flex-wrap: wrap; }
     .contact-item i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; display: block; }
     footer { text-align: center; padding: 30px; background: #1a202c; color: #a0aec0; font-size: 0.9rem; }
 
@@ -183,6 +231,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -194,11 +243,11 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Hi, I'm <span class="highlight">Okabo Ryan Trevor</span></h1>
-            <h2>Web Master & ICT Specialist</h2>
-            <p>Hardworking, social, and a fast learner with a passion for coding and technology.</p>
+            <h2>IT Student &amp; Aspiring IT / Software Support Intern</h2>
+            <p>Second-year BITC student at Kyambogo University with hands-on exposure to networking, Linux administration, computer maintenance, and IoT — a fast learner who builds and documents projects end-to-end.</p>
             <div class="hero-btns">
                 <a href="#contact" class="btn btn-primary">Contact Me</a>
-                <a href="#experience" class="btn btn-secondary">View My Work</a>
+                <a href="#projects" class="btn btn-secondary">View My Work</a>
             </div>
         </div>
     </section>
@@ -208,25 +257,43 @@
         <div class="about-grid">
             <div class="about-text">
                 <p>
-                    I am a hardworking and social person capable of handling different types of people under any circumstances. 
-                    I am also a very fast learner willing to work under instructions and pressure, provided it is with respect 
-                    and dignity. I possess a great sense of humor.
+                    Second-year Bachelor of Information Technology (BITC) student at Kyambogo University with
+                    hands-on exposure to networking, Linux system administration, computer maintenance, and IoT
+                    development gained through recent industrial training. Comfortable building and documenting
+                    practical projects end-to-end, from embedded hardware simulations to web front-ends. A fast
+                    learner and dependable team member with two years of customer-facing experience, looking to
+                    bring both technical and interpersonal skills to an IT internship.
                 </p>
                 <div class="info-list">
                     <ul>
                         <li><strong>Nationality:</strong> Ugandan</li>
                         <li><strong>Languages:</strong> English (Fluent), Luganda (Good), Luo (Fair)</li>
-                        <li><strong>Interests:</strong> Coding, Researching, Music, Gaming, Socializing</li>
+                        <li><strong>Interests:</strong> Coding, Researching, Socializing</li>
                     </ul>
                 </div>
             </div>
             <div class="skills-container">
-                <h3>Core Skills</h3>
-                <div class="skill-tag">ICT Skills</div>
-                <div class="skill-tag">Website Maintenance</div>
-                <div class="skill-tag">Communication</div>
-                <div class="skill-tag">Creativity</div>
-                <div class="skill-tag">Customer Service</div>
+                <div class="skill-group">
+                    <h4>Technical Skills</h4>
+                    <div class="skill-tag">HTML/CSS</div>
+                    <div class="skill-tag">React (in progress)</div>
+                    <div class="skill-tag">C</div>
+                    <div class="skill-tag">IoT Prototyping (ESP32, Arduino, Blynk)</div>
+                    <div class="skill-tag">Linux System Administration</div>
+                    <div class="skill-tag">Computer Networking</div>
+                    <div class="skill-tag">Computer Maintenance &amp; Troubleshooting</div>
+                    <div class="skill-tag">Git/GitHub</div>
+                    <div class="skill-tag">Word &amp; PowerPoint Documentation</div>
+                </div>
+                <div class="skill-group">
+                    <h4>Soft Skills</h4>
+                    <div class="skill-tag">Fast Learner</div>
+                    <div class="skill-tag">Communication</div>
+                    <div class="skill-tag">Customer Service</div>
+                    <div class="skill-tag">Creativity</div>
+                    <div class="skill-tag">Working Under Pressure</div>
+                    <div class="skill-tag">Project Management</div>
+                </div>
             </div>
         </div>
     </section>
@@ -235,21 +302,38 @@
         <div class="container">
             <h2 class="section-title">Working Experience</h2>
             <div class="timeline">
-                
+
                 <div class="timeline-item">
                     <div class="timeline-text">
-                        <h3>Web Master and Cashier</h3>
+                        <h3>Industrial Trainee</h3>
+                        <span class="company" style="color: var(--accent-color); font-weight: bold;">Kyambogo University</span>
+                        <span class="date">19 Jun 2026 – 10 Jul 2026</span>
+                        <p><strong>Responsibilities:</strong></p>
+                        <ul class="job-duties" style="list-style-position: inside;">
+                            <li>Gained practical exposure to computer networking fundamentals and network setup.</li>
+                            <li>Practiced Linux system administration tasks and general computer maintenance.</li>
+                            <li>Worked on IoT concepts and applications, building on coursework in embedded systems.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-image">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Networking and IT training">
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-text">
+                        <h3>Web Master &amp; Cashier</h3>
                         <span class="company">
                             <a href="https://ryantrevor14.github.io/Luzira-hardware/" target="_blank" style="text-decoration: none; color: var(--accent-color); font-weight: bold;">
                                 Luzira Hardware <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i>
                             </a>
                         </span>
-                        <span class="date">2020 - 2024</span>
+                        <span class="date">2022 – Present</span>
                         <p><strong>Responsibilities:</strong></p>
                         <ul class="job-duties" style="list-style-position: inside;">
-                            <li>Website maintenance and management.</li>
-                            <li>Attending to customers and handling inquiries.</li>
-                            <li>Cashiering and financial handling.</li>
+                            <li>Attend to customers and support day-to-day retail operations.</li>
+                            <li>Maintain and update the company website.</li>
+                            <li>Handle cashiering and point-of-sale duties.</li>
                         </ul>
                     </div>
                     <div class="timeline-image">
@@ -257,33 +341,68 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-text">
-                        <h3>Web Developer</h3>
-                        <span class="company">
-                            <a href="index.html" style="text-decoration: none; color: var(--accent-color); font-weight: bold;">
-                                Slick Webs <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i>
-                            </a>
-                        </span>
-                        <span class="date">2024 - Present</span>
-                        <p><strong>Responsibilities:</strong></p>
-                        <ul class="job-duties" style="list-style-position: inside;">
-                            <li>Company Owner & Founder.</li>
-                            <li>Full-stack website development and maintenance.</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-image">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80" alt="Web Development Work">
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <section id="education" class="container section">
-        <h2 class="section-title">Education & Awards</h2>
+    <section id="projects" class="container section">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">A mix of embedded/IoT simulation, front-end builds, and web deployments.</p>
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Automated Climate-Controlled Bean Storage (IoT)</h3>
+                <ul>
+                    <li>Simulated an IoT climate control system in Wokwi using an ESP32, DHT22 sensor, relay, and OLED display.</li>
+                    <li>Integrated Blynk Cloud for remote monitoring and configured push notifications for climate events.</li>
+                    <li>Produced full documentation, including written reports and presentation slides.</li>
+                </ul>
+                <a class="project-link" href="https://github.com/RyanTrevor14/IoT_Projects.git" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
+            </div>
+
+            <div class="project-card">
+                <span class="project-status">In Progress</span>
+                <div class="project-icon"><i class="fas fa-desktop"></i></div>
+                <h3>Slick OS — Browser-Based OS Concept</h3>
+                <ul>
+                    <li>Building a React web app recreating a desktop OS experience in the browser.</li>
+                    <li>Features a macOS-style dock with icon magnification, a frosted-glass start menu, draggable windows, widgets, and a theming/wallpaper settings app.</li>
+                </ul>
+                <a class="project-link" href="https://github.com/RyanTrevor14/Slick-OS.git" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-globe"></i></div>
+                <h3>Personal Portfolio Website</h3>
+                <ul>
+                    <li>Designed and built this personal website showcasing web development work.</li>
+                    <li>Published and hosted via GitHub Pages.</li>
+                </ul>
+                <a class="project-link" href="https://ryantrevor14.github.io/Slick-Webs/" target="_blank">Visit Site <i class="fas fa-external-link-alt"></i></a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-code-branch"></i></div>
+                <h3>Additional Software Projects</h3>
+                <ul>
+                    <li>Built a Breakout-style browser operating system.</li>
+                    <li>Other repositories include Bens_quantum_computing, graces_timer, and achi-backend.</li>
+                </ul>
+                <a class="project-link" href="https://github.com/RyanTrevor14" target="_blank">View GitHub Profile <i class="fas fa-external-link-alt"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="education" class="container section bg-light">
+        <h2 class="section-title">Education &amp; Awards</h2>
         <div class="education-grid">
+            <div class="edu-card current">
+                <h3>BITC — Bachelor of Information Technology in Computing</h3>
+                <p class="school">Kyambogo University</p>
+                <p class="year">Aug 2025 – 2028 (ongoing, Year 2)</p>
+            </div>
             <div class="edu-card">
                 <h3>UACE</h3>
                 <p class="school">St. Mary's College Lugazi</p>
@@ -302,7 +421,7 @@
         </div>
         <div class="awards-section">
             <h3><i class="fas fa-certificate"></i> Professional Awards</h3>
-            <p>Certificate of Information and Technology (ICT) applications - St. Mary's College Lugazi</p>
+            <p>Certificate of Information and Communication Technology (ICT) Applications — St. Mary's College Lugazi</p>
         </div>
     </section>
 
@@ -321,6 +440,10 @@
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <p class="text-white">Kampala, Uganda</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <p class="text-white">github.com/RyanTrevor14</p>
                 </div>
             </div>
         </div>
